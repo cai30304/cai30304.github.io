@@ -6,27 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+
+    <link rel="stylesheet" href="css/lightbox.min.css">
+
     <style>
-        .box {
-            width: 300px;
+        .lb-data .lb-caption {
+            font-size: 16px;
         }
     </style>
 </head>
 
 <body>
-    <h1>Title</h1>
-    <div class="box">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus labore alias culpa reprehenderit libero cum
-        tempore suscipit. Ducimus labore aliquid soluta recusandae modi deleniti maiores error alias? Quas, beatae
-        pariatur.
-    </div>
+    <a href="https://r.hswstatic.com/w_907/gif/tesla-cat.jpg" data-lightbox="image_1" data-title="My caption">
+        <img width="150" src="https://r.hswstatic.com/w_907/gif/tesla-cat.jpg" alt="">
+    </a>
 
-    <h1>Title</h1>
-    <div class="box">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus labore alias culpa reprehenderit libero cum
-        tempore suscipit. Ducimus labore aliquid soluta recusandae modi deleniti maiores error alias? Quas, beatae
-        pariatur.
-    </div>
+    <a href="https://news.nationalgeographic.com/content/dam/news/2018/05/17/you-can-train-your-cat/02-cat-training-NationalGeographic_1484324.ngsversion.1526587209178.adapt.1900.1.jpg"
+        data-lightbox="image_set" data-title="My caption">
+        <img width="150" src="https://news.nationalgeographic.com/content/dam/news/2018/05/17/you-can-train-your-cat/02-cat-training-NationalGeographic_1484324.ngsversion.1526587209178.adapt.1900.1.jpg"
+            alt="">
+    </a>
+
+    <a href="https://media.mnn.com/assets/images/2018/07/cat_eating_fancy_ice_cream.jpg.838x0_q80.jpg" data-lightbox="image_set"
+        data-title="My caption">
+        <img width="150" src="https://media.mnn.com/assets/images/2018/07/cat_eating_fancy_ice_cream.jpg.838x0_q80.jpg"
+            alt="">
+    </a>
+
+    <a href="https://s.hswstatic.com/gif/whiskers-sam.jpg" data-lightbox="image_set" data-title="My caption">
+        <img width="150" src="https://s.hswstatic.com/gif/whiskers-sam.jpg" alt="">
+    </a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/lightbox.min.js"></script>
+    <script>
+        lightbox.option({
+            'resizeDuration': 1000,
+            'wrapAround': true,
+            'fadeDuration' :300
+        })
+    </script>
 </body>
 
 </html>
