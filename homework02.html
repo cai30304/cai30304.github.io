@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            width: 400px;
+            height: 100vh;
+            background-color: #eee;
+            padding-top: 50px;
+            float: left; 
+        }
+        .navbar .nav-logo {
+            width: 150px;
+            height: 150px;
+            background-color: #222;
+            margin: 0 auto;
+        }
+        .navbar .nav-items {
+            padding: 0;
+            margin: 0 auto;
+            display: table;
+            margin-top: 30px;
+        }
+        .navbar .nav-items .nav-btn {
+            list-style: none;
+            line-height: 30px;
+        }
+        
+        .all {
+            width: 940px;
+            height: 570px;
+            background-color: #444;
+            position: absolute;
+            left: 50%;
+            margin-top: calc((100vh - 570px) / 2);
+            margin-bottom: calc((100vh - 570px) / 2);
+            margin-left: -280px;
+        }
+
+        .all .block {
+            height: 100%;
+            width: 313.33px;
+            background-color: #eee;
+            float: left;
+        }
+
+        .all .blockY {
+            margin: 0 10px;
+        }
+
+        @media screen and (max-width: 1360px) {
+            .all {
+                width: 800px;
+                height: 570px;
+                margin-left: -200px;
+            }
+
+            .all .blockX {
+                width: 100%;
+                height: calc(50% - 5px);
+                margin-bottom: 5px;
+            }
+            .all .blockY, .all .blockZ {
+                width: calc(50% - 5px);
+                height: 50%;
+                margin: 0;
+            }
+            .all .blockY {
+                margin: 5px 5px 0 0;
+            }
+            .all .blockZ {
+                margin: 5px 0 0 5px;
+            }
+        }
+
+        @media screen and (max-width: 1200px) {
+            .navbar {
+                width: 100%;
+                height: 100px;
+                padding: 0;
+            }
+
+            .navbar .nav-logo {
+                width: 80px;
+                height: 80px;
+                margin: 0;
+                float: left;
+                margin-top: 10px;
+                margin-left: 30px;
+            }
+
+            .navbar .nav-items {
+                margin: 0;
+                float: right;
+            }
+
+            .navbar .nav-items .nav-btn {
+                float: left;
+                line-height: inherit;
+                margin-top: 40px;
+                margin-left: 10px;
+            }
+
+            .all {
+                width: 90%;
+                margin: inherit;
+                transform: translateX(-50%);
+                margin-top: calc((100vh - 470px) / 2);
+            }
+        }
+
+        @media screen and (max-width: 375px) {
+            .navbar {
+                height: 80px;
+            }
+
+            .navbar .nav-mobi.btn {
+                width: 40px;
+                height: 40px;
+                background-color: #444;
+                float: left;
+                margin-top: 20px;
+                margin-left: 10px;
+            }
+
+            .navbar .nav-logo {
+                width: 50px;
+                height: 50px;
+                margin: 15px auto 0 auto;
+                float: none;
+            }
+
+            .navbar .nav-items {
+                display: none;
+            }
+
+            .all {
+                width: 100%;
+                height: calc(100vh - 80px);
+                margin-top: 80px;
+            }
+
+            .all .block {
+                width: 100%;
+                height: 33.33%;
+                margin: 0;
+                background-color: #666;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-mobi btn"></div>
+        <div class="nav-logo"></div>
+        <ul class="nav-items">
+            <li class="nav-btn">AAAAAA</li>
+            <li class="nav-btn">AAAAAA</li>
+            <li class="nav-btn">AAAAAA</li>
+        </ul>
+    </nav>
+    <div class="all">
+        <div class="block blockX">X</div>
+        <div class="block blockY">Y</div>
+        <div class="block blockZ">Z</div>
+    </div>
+</body>
+</html>
