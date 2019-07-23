@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .tabs {
+            max-width: 600px;
+            ;
+        }
+
+        .tab_btn_group {
+            display: flex;
+        }
+
+        .tab_btn {
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            margin: 0 5px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .tab_content_group {
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            margin: 0 5px;
+            border-radius: 10px;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tabs">
+        <div class="tab_btn_group">
+            <div class="tab_btn">Tab1</div>
+            <div class="tab_btn">Tab2</div>
+            <div class="tab_btn">Tab3</div>
+            <div class="tab_btn">Tab4</div>
+            <div class="tab_btn">Tab5</div>
+        </div>
+
+        <div class="tab_content_group">
+            <div class="tab_content show">
+                <h1>Tab1 content</h1>
+                Lorem ipsum, dolor sit amet consectetur <a href="">Test</a> adipisicing elit. Officia tempora, facere
+                earum esse sapiente vitae omnis fugit expedita commodi minima vero delectus in autem possimus, eaque
+                obcaecati similique culpa! Autem?
+            </div>
+            <div class="tab_content hidden">
+                <h1>Tab2 content</h1>
+            </div>
+            <div class="tab_content hidden">
+                <h1>Tab3 content</h1>
+            </div>
+            <div class="tab_content hidden">
+                <h1>Tab4 content</h1>
+            </div>
+            <div class="tab_content hidden">
+                <h1>Tab5 content</h1>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var btn_ary = document.querySelectorAll(".tab_btn");
+        var tab_content_ary = document.querySelectorAll(".tab_content");
+
+        for (let index = 0; index < btn_ary.length; index++) {
+            const tab_btn = btn_ary[index];
+            const tab_content = tab_content_ary[index];
+            
+            // console.log("tab_btn:",tab_btn);
+            // console.log("tab_content:",tab_content);
+
+            tab_btn.onclick = function(){
+                // console.log(tab_btn);
+                //按鈕按下去後要隱藏所有人
+                hidden_all();
+
+                //再顯示特定的分頁
+                tab_content.classList.remove("hidden");
+                tab_content.classList.add("show");
+            }
+        }
+
+        function hidden_all() {
+            for (let index = 0; index < tab_content_ary.length; index++) {
+                const tab_content = tab_content_ary[index];
+
+                tab_content.classList.remove("show");
+                tab_content.classList.add("hidden");
+            }
+        }
+
+    </script>
+</body>
+
+</html>

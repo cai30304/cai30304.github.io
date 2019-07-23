@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title" id="myTitle">Hello 123</h1>
+
+    <!-- 1. 對這個按鈕，綁定按鍵事件，當按下時按鈕時，呼叫btn_click() 函式 -->
+    <button onclick="btn_click()">改變文字</button>
+    
+    
+    
+    <script>
+        // 2. 按鈕按下後會發生的函式
+        function btn_click(){
+            
+            //3. 抓取目前h1的文字
+
+            //選擇到h1
+            var h1 = document.querySelector("#myTitle");
+            console.log("選擇到東西:" , h1);
+
+            //現在的文字
+            var now_title = h1.textContent;
+            console.log("現在的文字:" , now_title);
+
+            //4. 判斷裡面的文字，如果是"Hello 123" 改為 "Hello 456" , 否則 改為"Hello 123"
+
+            if (now_title == "Hello 123") {
+                // console.log("判斷式結果:true");
+                //h1的內容改為 "Hello 456"
+                h1.textContent = "Hello 456";
+
+            } else {
+                // console.log("判斷式結果:fales");
+                //h1的內容改為 "Hello 123"
+                h1.textContent = "Hello 123";
+            }
+
+        }
+    </script>
+</body>
+</html>
