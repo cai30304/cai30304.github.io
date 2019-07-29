@@ -1,0 +1,18 @@
+@import "var";
+
+.box {
+    font-size: $font-h1;
+    color: $red;
+
+    @media screen and (max-width:480px){
+        font-size: 16px;
+    }
+
+    &:hover {
+        font-size: 30px;
+
+        @media screen and (max-width:480px){
+            font-size: 20px;
+        }
+    }
+}

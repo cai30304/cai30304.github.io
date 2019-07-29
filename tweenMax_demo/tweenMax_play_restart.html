@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: #fff;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0 10px;
+            padding: 0;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            border-radius: 6px;
+            margin-top: 4px;
+            display: inline-block
+        }
+
+        .green {
+            background-color: #6fb936;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box green"> </div>
+    <div class="box green"> </div>
+    <div class="box green"> </div>
+    <div class="box green"> </div>
+
+    <button class="btn_play">Play</button>
+    <button class="btn_paused">paused</button>
+    <button class="btn_restart">restart</button>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
+    <script>
+        tween = new TweenMax.to('.box', 1, {
+            borderRadius: "50%",
+            paused:true
+        },0.5);
+
+        
+
+        $(".btn_play").click(function(){
+            tween.play();
+        });
+
+        $(".btn_paused").click(function(){
+            tween.pause();
+        });
+
+        $(".btn_restart").click(function(){
+            tween.restart();
+        });
+    </script>
+</body>
+
+</html>
