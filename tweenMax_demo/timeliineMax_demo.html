@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            display: inline-block;
+            border-radius: 6px;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script>
+        // TweenLite.to('.box', 1, { left: 100 });
+        // TweenLite.to('.box', 1, { top: 50, delay: 1 });//延迟1秒，接续前一个动画
+        // TweenLite.to('.box', 1, { opacity: 0, delay: 2 });//延迟2秒，接续前一个动画
+
+        // var tm = new TimelineLite();
+        // tm.add(TweenLite.to('.box', 1, { left: 100 }));
+        // tm.add(TweenLite.to('.box', 1, { top: 50 }));
+        // tm.add(TweenLite.to('.box', 1, { opacity: 0 }));
+
+        // var t1 = new TimelineLite();
+        // t1.to('.box', 1, { left: 100 })
+        //     .to('.box', 1, { top: 50 })
+        //     .to('.box', 1, { opacity: 0 });
+
+        var t1 = new TimelineLite();
+        t1.staggerTo('.box', 1, { left: 100 },0.5)
+            .staggerTo('.box', 1, { top: 50 },0.5)
+            .staggerTo('.box', 1, { opacity: 0 },0.5);
+    </script>
+</body>
+
+</html>

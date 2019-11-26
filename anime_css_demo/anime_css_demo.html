@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-duration: 0.3s;
+            transition: 0.3s;
+        }
+
+        .box.long{
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+    <button class="btn">
+        click me
+    </button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(".box").hover(function () {
+            $(this).addClass("animated infinite tada");
+        }, function () {
+            $(this).removeClass("animated infinite tada");
+        });
+
+        // $(".btn").click(function () {
+        //     $(this).addClass("animated swing");
+        // });
+
+        // $(".btn").on('animationend', function () {
+        //     console.log("swing");
+        // });
+
+        $(".btn").click(function () {
+            animateCSS('.box', 'bounce', function () {
+                // $(".box").css( "width", "500" ).css( "height", "500" );
+                // $(".box").css({
+                //     'height':'500',
+                //     'width':'500'
+                // });
+
+                $(".box").addClass('long');
+            })
+        });
+
+
+        function animateCSS(element, animationName, callback) {
+            const node = document.querySelector(element)
+            node.classList.add('animated', animationName)
+
+            function handleAnimationEnd() {
+                node.classList.remove('animated', animationName)
+                node.removeEventListener('animationend', handleAnimationEnd)
+
+                if (typeof callback === 'function') callback()
+            }
+
+            node.addEventListener('animationend', handleAnimationEnd)
+        }
+
+    </script>
+</body>
+
+</html>

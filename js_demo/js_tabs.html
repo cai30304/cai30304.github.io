@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .tabs {
+            max-width: 600px;
+        }
+
+        .tab_btn_group {
+            display: flex;
+        }
+
+        .tab_btn {
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            margin: 0 5px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .tab_content_group {
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            margin: 0 5px;
+            border-radius: 10px;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tabs">
+        <div class="tab_btn_group">
+            <div class="tab_btn" id="tab_btn_1">Tab1</div>
+            <div class="tab_btn" id="tab_btn_2">Tab2</div>
+            <div class="tab_btn" id="tab_btn_3">Tab3</div>
+        </div>
+
+        <div class="tab_content_group">
+            <div class="tab_content show" id="tab_content_1">
+                <h1>Tab1 content</h1>
+                Lorem ipsum, dolor sit amet consectetur <a href="">Test</a> adipisicing elit. Officia tempora, facere
+                earum esse sapiente vitae omnis fugit expedita commodi minima vero delectus in autem possimus, eaque
+                obcaecati similique culpa! Autem?
+            </div>
+            <div class="tab_content hidden" id="tab_content_2">
+                <h1>Tab2 content</h1>
+            </div>
+            <div class="tab_content hidden" id="tab_content_3">
+                <h1>Tab3 content</h1>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var tab_btn_1 = document.querySelector("#tab_btn_1");
+        var tab_btn_2 = document.querySelector("#tab_btn_2");
+        var tab_btn_3 = document.querySelector("#tab_btn_3");
+        var tab_content_1 = document.querySelector("#tab_content_1");
+        var tab_content_2 = document.querySelector("#tab_content_2");
+        var tab_content_3 = document.querySelector("#tab_content_3");
+
+
+        //按鍵事件
+        tab_btn_1.onclick = function () {
+            //按鈕按下去後要隱藏所有人
+            hidden_all();
+
+            //再顯示特定的分頁(1)
+            tab_content_1.classList.remove("hidden");
+            tab_content_1.classList.add("show");
+        }
+
+        tab_btn_2.onclick = function () {
+            //按鈕按下去後要隱藏所有人
+            hidden_all();
+
+            //再顯示特定的分頁(2)
+            tab_content_2.classList.remove("hidden");
+            tab_content_2.classList.add("show");
+        }
+
+        tab_btn_3.onclick = function () {
+            //按鈕按下去後要隱藏所有人
+            hidden_all();
+
+            //再顯示特定的分頁(3)
+            tab_content_3.classList.remove("hidden");
+            tab_content_3.classList.add("show");
+        }
+
+        function hidden_all() {
+            tab_content_1.classList.remove("show");
+            tab_content_2.classList.remove("show");
+            tab_content_3.classList.remove("show");
+            tab_content_1.classList.add("hidden");
+            tab_content_2.classList.add("hidden");
+            tab_content_3.classList.add("hidden");
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .card {}
+
+        .top_section img {
+            max-width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+    </div>
+
+    <script>
+        var tea = {
+            image: "https://c1.staticflickr.com/1/825/27706894268_1c51b75189_o.jpg",
+            teaName: "青茶",
+            content: "在 ES6 中，我們多了一個非常好用的模版字符串（template literal），如果你會在 JS 中「放入 HTML 的內容」、或者有「很長的字串包含換行」、又或者會有「字串連結變數」這樣的需求，模版字符串會是非常方便的作法。"
+        };
+
+        var card = document.querySelector(".card");
+
+        card.innerHTML = `
+        <div class="top_section">
+            <img id="top_section_image" src="${tea.image}" alt="">
+        </div>
+        <div class="bottom_section">
+            <h1 id="title">${tea.teaName}</h1>
+            <p id="content">${tea.content}</p>
+        </div>
+        `;
+
+    </script>
+</body>
+
+</html>

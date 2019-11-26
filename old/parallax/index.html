@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我94石虎</title>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .clearfix {
+            clear: both;
+        }
+
+        /* 最上方的選單，目前無任何功用 */
+        #sub_nav {
+            border-top: 20px solid #222;
+        }
+
+
+        /* 背景圖片選單 */
+        #bg_banner {
+            height: 70vh;
+            background-image: url('https://www.taiwanhot.net/wp-content/uploads/2018/01/5a4f1158b6271.jpg');
+            background-size: cover;
+            background-position-y: 65%;
+            background-attachment: fixed;
+        }
+
+        #bg_banner .container {
+            height: 70vh;
+            position: relative;
+        }
+
+        #bg_banner .title {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 60px;
+            line-height: 75px;
+            letter-spacing: 15px;
+            text-shadow: 3px 3px 5px #333;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px 25px;
+        }
+
+        /* 主要選單 */
+        #main_nav {
+            position: sticky;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            z-index: 99;
+        }
+
+        #main_nav a.nav_link {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 20px;
+            float: left;
+        }
+
+        /*區塊1*/
+        #section_1 {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        #section_1 .left_box {
+            float: left;
+            width: 50%;
+            padding: 0 20px;
+        }
+
+        #section_1 .left_box img {
+            width: 100%;
+        }
+
+        /*區塊2*/
+        #section_2 {
+            background-color: #333;
+            padding: 80px 0;
+        }
+
+        #section_2 .left_box {
+            float: left;
+            width: 50%;
+            padding: 0 20px;
+            color: white;
+        }
+
+        #section_2 .left_box img {
+            width: 100%;
+        }
+
+        /*區塊3*/
+        #section_3 {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        #section_3 .left_box {
+            float: left;
+            width: 33.33%;
+            padding: 0 20px;
+        }
+
+        #section_3 .left_box img {
+            width: 100%;
+        }
+
+        /*區塊4*/
+        #section_4 {
+            background-color: #333;
+            padding: 80px 0;
+            color: white;
+        }
+
+        #section_4 h1 {
+            text-align: center;
+        }
+
+        #section_4 p {
+            -webkit-column-count: 3;
+            /* Chrome, Safari, Opera */
+            -moz-column-count: 3;
+            /* Firefox */
+            column-count: 3;
+
+            -webkit-column-gap: 40px;
+            /* Chrome, Safari, Opera */
+            -moz-column-gap: 40px;
+            /* Firefox */
+            column-gap: 40px;
+        }
+
+        /*區塊5*/
+        #section_5 {
+            height: 50vh;
+            background-image: url('https://www.taiwanhot.net/wp-content/uploads/2018/01/5a4f1158b6271.jpg');
+            background-size: cover;
+            background-position-y: 65%;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        #section_5 .overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.3);
+            transition: 1.3s;
+        }
+
+        #section_5 .overlay h1 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 70px;
+            opacity: 1;
+            transition: 1.3s;
+        }
+
+        #section_5 .overlay:hover {
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        #section_5 .overlay:hover h1 {
+            opacity: 0;
+        }
+
+        /*區塊6*/
+        #section_6 h1 {
+            text-align: center;
+        }
+
+        #section_6 .left_box {
+            float: left;
+            width: 50%;
+            height: 50vh;
+            background-image: url('http://i.epochtimes.com/assets/uploads/2018/06/891b3e51d8df03e2d4b2cc2d8c56d661-600x400.jpg');
+            background-size: cover;
+            color: white;
+            padding: 50px;
+        }
+
+        #section_6 .right_box {
+            float: left;
+            width: 50%;
+            height: 50vh;
+            background-image: url('http://qicao.pixnet.net/album/downloadphoto?id=149598009');
+            background-size: cover;
+            padding: 50px;
+        }
+
+        /*footer*/
+        footer {
+            font-size: 12px;
+            background-color: #333;
+            color: #999;
+            padding: 8px 0;
+            text-align: center;
+        }
+
+        .back_to_top {
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+            background-color: #fff;
+            padding: 20px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .back_to_top.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 版面最上方的nav-->
+    <nav id="sub_nav"></nav>
+
+    <!-- 背景圖片+parallax -->
+    <section id="bg_banner">
+        <div class="container">
+            <h1 class="title">
+                不要再逗我了，<br>
+                我是石虎不是貓。
+            </h1>
+        </div>
+    </section>
+
+    <!-- 主要選單+position:sticky -->
+    <nav id="main_nav">
+        <div class="container">
+            <a class="nav_link" href="#section_1">Link1</a>
+            <a class="nav_link" href="#section_2">Link2</a>
+            <a class="nav_link" href="#section_3">Link3</a>
+            <a class="nav_link" href="#section_4">Link4</a>
+            <a class="nav_link" href="#section_5">Link5</a>
+            <a class="nav_link" href="#section_6">Link6</a>
+            <div class="clearfix"></div>
+        </div>
+    </nav>
+
+
+    <section id="section_1">
+        <div class="container">
+            <div class="left_box">
+                <img src="http://m.bldaily.com/wp-content/uploads/2018/01/20180105000018m.jpg" alt="石虎">
+            </div>
+            <div class="left_box">
+                <h1>Title</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem iste impedit ratione non quae.
+                    Architecto,
+                    provident? Voluptatibus autem totam, quisquam fugiat perspiciatis alias aliquid ut nobis qui at,
+                    reprehenderit officiis?
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure animi hic est nam obcaecati facilis
+                    architecto voluptates possimus, dolores esse voluptatum sequi iusto quidem assumenda officiis
+                    tenetur rerum tempora accusamus et, placeat nesciunt eum quis? Consequuntur quas quo repudiandae
+                    architecto sed dicta laboriosam fugit consequatur! Accusamus dicta nesciunt veniam doloremque at
+                    fugiat quisquam soluta impedit ipsum mollitia, officiis est velit nihil sequi nobis natus eaque
+                    dignissimos quasi voluptatem illo, aliquid consectetur autem. Distinctio in, explicabo quibusdam
+                    eligendi ad cupiditate voluptate quidem numquam nemo alias dolorem quod dicta voluptas error.
+                    Beatae, maiores. Maiores quisquam incidunt repudiandae laboriosam ea. Placeat, consequuntur! Sed,
+                    distinctio assumenda. Optio consequatur voluptatibus, deleniti a reiciendis explicabo molestiae
+                    saepe sunt voluptatem ad alias quam quidem suscipit culpa tenetur!
+                </p>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </section>
+
+    <section id="section_2">
+        <div class="container">
+            <div class="left_box">
+                <h1>Title</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem iste impedit ratione non quae.
+                    Architecto,
+                    provident? Voluptatibus autem totam, quisquam fugiat perspiciatis alias aliquid ut nobis qui at,
+                    reprehenderit officiis?
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure animi hic est nam obcaecati facilis
+                    architecto voluptates possimus, dolores esse voluptatum sequi iusto quidem assumenda officiis
+                    tenetur rerum tempora accusamus et, placeat nesciunt eum quis? Consequuntur quas quo repudiandae
+                    architecto sed dicta laboriosam fugit consequatur! Accusamus dicta nesciunt veniam doloremque at
+                    fugiat quisquam soluta impedit ipsum mollitia, officiis est velit nihil sequi nobis natus eaque
+                    dignissimos quasi voluptatem illo, aliquid consectetur autem. Distinctio in, explicabo quibusdam
+                    eligendi ad cupiditate voluptate quidem numquam nemo alias dolorem quod dicta voluptas error.
+                    Beatae, maiores. Maiores quisquam incidunt repudiandae laboriosam ea. Placeat, consequuntur! Sed,
+                    distinctio assumenda. Optio consequatur voluptatibus, deleniti a reiciendis explicabo molestiae
+                    saepe sunt voluptatem ad alias quam quidem suscipit culpa tenetur!
+                </p>
+            </div>
+            <div class="left_box">
+                <img src="http://m.bldaily.com/wp-content/uploads/2018/01/20180105000018m.jpg" alt="石虎">
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </section>
+
+    <section id="section_3">
+        <div class="container">
+            <div class="left_box lax position-relative" data-lax-translate-y="0 -150,500 0"  data-lax-anchor="self">
+                <img src="http://biodivinfo.asdc.tw/leopardcat/files/leopardcat/styles/exhibit_900x800/public/images/l066.jpg?itok=RIiz6gF6"
+                    alt="">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, earum exercitationem? Eos magnam
+                    officia corporis rem inventore molestias nesciunt saepe, eveniet voluptas harum, tempora deserunt
+                    similique dolores esse laborum amet?
+                </p>
+            </div>
+            <div class="left_box lax position-relative" data-lax-translate-y="0 50,500 0"  data-lax-anchor="self">
+                <img src="https://video.nextmag.com.tw/photo/2014/12/05/640_be312ead82a63af7d4488eac406f073b_1417746561322_115427_ver1.0.jpg"
+                    alt="">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, earum exercitationem? Eos magnam
+                    officia corporis rem inventore molestias nesciunt saepe, eveniet voluptas harum, tempora deserunt
+                    similique dolores esse laborum amet?
+                </p>
+            </div>
+            <div class="left_box lax position-relative" data-lax-translate-y="0 -200,500 0"  data-lax-anchor="self">
+                <img src="https://cdn2.ettoday.net/images/2148/2148841.jpg" alt="">
+                <h1 id="test_title">我是豹貓不是石虎</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, earum exercitationem? Eos magnam
+                    oamet?
+                </p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+
+    <section id="section_4">
+        <div class="container">
+            <h1>Title Is Me</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit at doloremque ipsam tempore natus quam
+                repellendus eveniet temporibus ea, voluptas aliquam repudiandae dolorum. Eaque blanditiis, illum
+                aliquam aliquid doloremque, sequi dolorum sit veritatis nulla rerum pariatur, tempore fuga optio.
+                Dolorem quod neque iure tempore aut esse exercitationem laudantium blanditiis adipisci voluptatibus
+                laboriosam, asperiores error maiores quam deleniti officiis. Repudiandae neque accusamus illo, fugit id
+                eos necessitatibus omnis aperiam ducimus esse. Officiis eum quos porro, alias nemo assumenda officia
+                maxime inventore voluptas adipisci ea eos minus hic exercitationem molestiae modi provident autem
+                consequatur voluptate dolore ullam molestias natus consequuntur! Maxime voluptatum esse voluptates
+                aspernatur dolore, harum aut nesciunt unde distinctio autem doloremque perferendis natus vel mollitia
+                delectus sint quaerat saepe similique totam! Corrupti aspernatur quis beatae ex quas ad sed magni, nam
+                quasi commodi? Soluta deleniti similique illo rem repellat inventore iure modi enim. Omnis iusto sit,
+                suscipit sed ipsum vel id dolorem eligendi sint tenetur nemo autem. In ducimus harum, accusantium
+                nostrum quos expedita illo odit exercitationem deleniti quis explicabo ullam unde optio neque. Dolore,
+                quaerat. Minima unde deserunt fugit autem? Porro, ut veritatis aspernatur voluptate incidunt vitae
+                minus ducimus cupiditate odit dignissimos, illum aperiam, unde officia repellat sint modi?</p>
+        </div>
+    </section>
+
+
+    <section id="section_5">
+        <div class="overlay">
+            <h1>我是可愛的石虎</h1>
+        </div>
+    </section>
+
+
+    <section id="section_6">
+        <div class="left_box">
+            <h1>我是石虎</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus commodi quod minima excepturi cumque
+                officia facere illum quasi reiciendis ipsum eligendi sint nesciunt velit minus, eius tempore vero
+                quidem sit ut quas veniam eos! Eligendi enim, eum blanditiis velit vero quas, atque ad in error qui
+                perferendis facere deleniti voluptates?</p>
+        </div>
+        <div class="right_box">
+            <h1>我是豹貓</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus soluta vitae nobis perspiciatis
+                quam. Quod illum praesentium cum corrupti saepe assumenda blanditiis vel recusandae a esse magni
+                reiciendis pariatur vero adipisci nesciunt minima reprehenderit, iure facere tempore et. Modi nulla
+                iusto recusandae porro deleniti repudiandae blanditiis vel quam ex molestias.</p>
+        </div>
+        <div class="clearfix"></div>
+    </section>
+    <footer>
+        <div class="container">
+            Copyright © 2018 HanksOAO Inc. 保留一切權利。
+        </div>
+    </footer>
+
+    <div class="back_to_top">
+        回到最上
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/lax.js"></script>
+    <script>
+        window.onload = function () {
+            lax.setup() // init
+
+            const updateLax = () => {
+                lax.update(window.scrollY)
+                window.requestAnimationFrame(updateLax)
+            }
+
+            window.requestAnimationFrame(updateLax)
+        }
+    </script>
+
+    <script>
+        //AOS初始化
+        AOS.init({
+            duration: 2000
+        });
+
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+
+        $(window).scroll(function () {
+            //捲動過的高度
+            var scrollTop = $(window).scrollTop();
+
+            if (scrollTop > 200) {
+                $(".back_to_top").addClass("active");
+            } else {
+                $(".back_to_top").removeClass("active");
+            }
+        });
+
+        $(".back_to_top").click(function () {
+            // $(window).scrollTop(0);
+            $('html, body').animate({
+                scrollTop: 0
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>

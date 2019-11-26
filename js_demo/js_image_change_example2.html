@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #img_banner {
+            max-width: 600px;
+        }
+
+        .top_section img {
+            width: 100%;
+        }
+
+        .bottom_section {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .bottom_section .image_block {
+            width: 25%;
+            padding: 5px;
+        }
+
+        @media (max-width:460px) {
+            .bottom_section .image_block {
+                width: 50%;
+            }
+        }
+
+        .bottom_section .image_block img {
+            width: 100%;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="img_banner">
+
+        <div class="top_section">
+            <div class="hidden" id="top_pic_A">
+                <img src="https://news.nationalgeographic.com/content/dam/news/2018/05/17/you-can-train-your-cat/02-cat-training-NationalGeographic_1484324.ngsversion.1526587209178.adapt.1900.1.jpg"
+                    alt="">
+            </div>
+
+            <div class="hidden" id="top_pic_B">
+                <img src="https://i1.wp.com/muki.tw/wordpress/wp-content/uploads/2015/07/CSS-Specificity-full.png"
+                    alt="">
+            </div>
+
+            <div class="show" id="top_pic_C">
+                <img src="https://i2.wp.com/muki.tw/wordpress/wp-content/uploads/2015/07/css-specificity-step.png"
+                    alt="">
+            </div>
+
+            <div class="hidden" id="top_pic_D">
+                <img src="http://chenhaizhou.github.io/images/css_weight.png" alt="">
+            </div>
+        </div>
+
+        <div class="bottom_section">
+            <div class="image_block" id="pic_A">
+                <img src="https://news.nationalgeographic.com/content/dam/news/2018/05/17/you-can-train-your-cat/02-cat-training-NationalGeographic_1484324.ngsversion.1526587209178.adapt.1900.1.jpg"
+                    alt="">
+            </div>
+
+            <div class="image_block" id="pic_B">
+                <img src="https://i1.wp.com/muki.tw/wordpress/wp-content/uploads/2015/07/CSS-Specificity-full.png"
+                    alt="">
+            </div>
+
+            <div class="image_block" id="pic_C">
+                <img src="https://i2.wp.com/muki.tw/wordpress/wp-content/uploads/2015/07/css-specificity-step.png"
+                    alt="">
+            </div>
+
+            <div class="image_block" id="pic_D">
+                <img src="http://chenhaizhou.github.io/images/css_weight.png" alt="">
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        var pic_A = document.querySelector("#pic_A");
+        var pic_B = document.querySelector("#pic_B");
+        var pic_C = document.querySelector("#pic_C");
+        var pic_D = document.querySelector("#pic_D");
+
+        var top_Pic_A = document.querySelector("#top_pic_A");
+        var top_Pic_B = document.querySelector("#top_pic_B");
+        var top_Pic_C = document.querySelector("#top_pic_C");
+        var top_Pic_D = document.querySelector("#top_pic_D");
+
+        //在JS綁定按鍵事件
+        pic_A.onclick = function () {
+            //隱藏所有的Top_pic
+            hidden_all();
+
+            //show A
+            top_Pic_A.classList.remove('hidden');
+            top_Pic_A.classList.add('show');
+        }
+
+        pic_B.onclick = function () {
+            //隱藏所有的Top_pic
+            hidden_all();
+
+            //show B
+            top_Pic_B.classList.remove('hidden');
+            top_Pic_B.classList.add('show');
+        }
+
+        pic_C.onclick = function () {
+            //隱藏所有的Top_pic
+            hidden_all();
+
+            //show C
+            top_Pic_C.classList.remove('hidden');
+            top_Pic_C.classList.add('show');
+        }
+
+        pic_D.onclick = function () {
+            //隱藏所有的Top_pic
+            hidden_all();
+
+            //show D
+            top_Pic_D.classList.remove('hidden');
+            top_Pic_D.classList.add('show');
+        }
+
+        function hidden_all() {
+            top_Pic_A.classList.remove('show');
+            top_Pic_B.classList.remove('show');
+            top_Pic_C.classList.remove('show');
+            top_Pic_D.classList.remove('show');
+            top_Pic_A.classList.add('hidden');
+            top_Pic_B.classList.add('hidden');
+            top_Pic_C.classList.add('hidden');
+            top_Pic_D.classList.add('hidden');
+        }
+
+    </script>
+</body>
+
+</html>
